@@ -1,0 +1,28 @@
+"CI/CD 🔁":
+  - changed-files:
+      - any-glob-to-any-file:
+          - ".github/workflows/*.yml"
+          - ".github/ISSUE_TEMPLATE/*.yml"
+          - ".github/pull_request_template.md"
+          - ".github/CODEOWDERS"
+          - ".github/labeler.yml"
+"Docs 📚":
+  - changed-files:
+      - any-glob-to-any-file:
+          - "**/*.md"
+          - "README.md"
+          - ".github/SECURITY.md"
+"Security 🛡️":
+  - changed-files:
+      - any-glob-to-any-file:
+          - ".github/SECURITY.md"
+
+"Bug 🐛":
+  - head-branch:
+      - "^fix/.*"
+      - "^bugfix/.*"
+      - "^hotfix/.*"
+"Feature ✨":
+  - head-branch:
+      - "^feat/.*"
+      - "^feature/.*"
