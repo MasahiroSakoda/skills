@@ -16,13 +16,20 @@
   - changed-files:
       - any-glob-to-any-file:
           - ".github/SECURITY.md"
-
 "Bug 🐛":
   - head-branch:
       - "^fix/.*"
       - "^bugfix/.*"
       - "^hotfix/.*"
+"Chore 🏠":
+  - head-branch:
+      - "^chore/.*"
+      - "^maintenance/.*"
 "Feature ✨":
   - head-branch:
       - "^feat/.*"
       - "^feature/.*"
+"Refactor ♻️":
+  - head-branch:
+      - "^refactor/.*"
+      - "^cleanup/.*"
