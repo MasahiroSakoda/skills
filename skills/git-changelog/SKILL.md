@@ -3,6 +3,9 @@ name: git-changelog
 description: Generate changelog from current branch changes. Use when the user asks to write a changelog entry, fill the changelog section of a PR, or determine if changes are user-facing.
 allowed-tools:
   - Bash(git log:*)
+  - Bash(git remote show origin)
+  - Bash(git branch --show-current)
+  - Bash(awk:*)
   - Grep
 ---
 
@@ -13,9 +16,8 @@ Your task is to analyze commit log and generate properly formatted changelog tha
 
 ## Process Overview
 
-1. ** Check the Branches**: Execute diff only default branch and current branch.
-2. **Commit Log Analysis**: Analyze the commit log with `git` command
-3. **Changelog Generation**: Create changelog with commit message and extendable details
+1. **Commit Log Analysis**: Analyze the commit log with `git` command
+2. **Changelog Generation**: Create changelog with commit message and extendable details
 
 ## Changelog Workflows
 
@@ -23,12 +25,18 @@ Your task is to analyze commit log and generate properly formatted changelog tha
 
 Work on branches other than `main` or `master`. Otherwise, exit command with warning message.
 
-1. Get the default branch name using `git remote show origin | grep 'HEAD branch' | awk '{print $NF}'`
-2. Get the current branch name using `git branch --show-curreht`
+```bash
+DEFAULT_BRANCH=$(git remote show origin | grep 'HEAD branch' | awk '{print $NF}')
+CURRENT_BRANCH=$(git branch --show-current)
+if [ "$CURRENT_BRANCH" = "$DEFAULT_BRANCH" ]; then
+  echo "🚨 On default branch — checkout branch first"
+  exit 1
+fi
+```
 
 ### Step 2: Commit Log Analysis
 
-- Get the commit log using `git log {default_branch}..{current_branch}`
+- Get the commit log using `git log $DEFAULT_BRANCH..$CURRENT_BRANCH`
 
 ### Step 3: Message Generation
 
@@ -90,7 +98,7 @@ Work on branches other than `main` or `master`. Otherwise, exit command with war
 - **Breaking Changes**: commit type contains `type(scope)!`
 - **New Features**: commit type: `feat(scope):`
 - **Bug Fixes**: commit type contains`fix(scope)`
-- **Other Changes**:  Changes not belonging to the above items like `chrore`, `refactor`, `docs`.
+- **Other Changes**: Changes not belonging to the above items like `chrore`, `refactor`, `docs`.
 - **Commit Details**: Commit details should be separated by line breaks for each item.
 
 ### Step 4: Quality Check
