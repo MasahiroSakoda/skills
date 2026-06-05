@@ -196,7 +196,7 @@ refactor(components): extract reusable UI components
 3. **Determine type**: Choose the most appropriate conventional commit type
 4. **Identify scope**: Determine the affected module or component
 5. **Write summary**: Create clear, imperative summary under 50 characters
-6. **Add details**: Provide 2-4 bullet points explaining the changes
+6. **Add details**: Provide 2~5 bullet points explaining the changes
 7. **Review for breaking changes**: Add exclamationmark if changes are breaking
 
 ## Quality Checklist
@@ -207,7 +207,7 @@ Before presenting the commit message, ensure:
 - [ ] Scope accurately reflects affected areas
 - [ ] Summary is under 50 characters and imperative mood
 - [ ] Two blank lines separate summary from details
-- [ ] 2-4 clear bullet points explain the changes
+- [ ] 2~5 clear bullet points explain the changes
 - [ ] Breaking changes are marked with exclamationmark if applicable
 - [ ] Message explains both what and why
 - [ ] Technical details are clear and specific
