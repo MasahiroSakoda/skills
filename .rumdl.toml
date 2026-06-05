@@ -1,0 +1,12 @@
+[global]
+exclude = [
+  ".git/**",
+]
+disable = [
+  "MD013",    # line-length - Line length
+  "MD032",    # Lists should be surrounded by blank
+]
+
+[MD007]
+indent = 2
+style  = "fixed"
