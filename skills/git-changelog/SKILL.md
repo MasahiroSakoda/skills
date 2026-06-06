@@ -1,12 +1,8 @@
 ---
 name: git-changelog
 description: Generate changelog from current branch changes. Use when the user asks to write a changelog entry, fill the changelog section of a PR, or determine if changes are user-facing.
-allowed-tools:
-  - Bash(git log:*)
-  - Bash(git remote show origin)
-  - Bash(git branch --show-current)
-  - Bash(awk:*)
-  - Grep
+license: MIT
+allowed-tools: Bash(git log:*), Bash(remote show origin), Bash(git branch --show-current), Bash(awk:*), Grep
 ---
 
 # Changelog Generator
