@@ -6,13 +6,7 @@ description: >
     (Go template syntax, run_once_/run_onchange_ scripts, .chezmoidata),
     handling file attributes (symlinks, permissions, encryption, external sources),
     Troubleshooting chezmoi operations or understanding application order.
-allowed-tools:
-  - Read
-  - Edit
-  - Write
-  - Glob
-  - Grep
-  - Bash(chezmoi:*)
+allowed-tools: Read, Edit, Write, Glob, Grep, Bash(chezmoi:*)
 ---
 
 # chezmoi - Cross platform dotfiles manager

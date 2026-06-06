@@ -1,8 +1,7 @@
 ---
 name: git-commit
 description: Generate conventional commit message from staged changes. Use when asked to "commit", "stage and commit", "save changes", or after completing implementation tasks.
-allowed-tools:
-  - Bash(git diff:*)
+allowed-tools: Bash(git diff:*)
 ---
 
 # Conventional Commit Generator
